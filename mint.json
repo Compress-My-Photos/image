@@ -54,9 +54,5 @@
                 "api-reference/image-component"
             ]
         }
-    ],
-    "footerSocials": {
-        "github": "https://github.com/Compress-My-Photos",
-        "bluesky": "https://twitter.com/compressmyphotos"
-    }
+    ]
 }
