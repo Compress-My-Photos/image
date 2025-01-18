@@ -1,8 +1,8 @@
 {
     "name": "CompressMyPhotos",
     "logo": {
-        "light": "/logo/light.png",
-        "dark": "/logo/dark.png"
+        "light": "logo/light.png",
+        "dark": "logo/dark.png"
     },
     "favicon": "/favicon.png",
     "colors": {
