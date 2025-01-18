@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 
 class CompressMyPhotosServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         $this->loadViewsFrom(__DIR__.'/../resources', 'compress-my-photos');
 
@@ -20,7 +20,7 @@ class CompressMyPhotosServiceProvider extends ServiceProvider
         ]);
     }
 
-    public function register()
+    public function register(): void
     {
         //
     }
