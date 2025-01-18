@@ -1,9 +1,16 @@
 {
     "name": "compressmyphotos/image",
     "type": "library",
+    "version": "0.1.3",
     "description": "A package for displaying photos from compressmy.photos in your Laravel app.",
     "keywords": ["image", "compress", "library", "image package"],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Matilde Enevoldsen",
+            "email": "info@compressmy.photos"
+        }
+    ],
     "require": {
         "php": "^8.2",
         "ext-gd": "*",
