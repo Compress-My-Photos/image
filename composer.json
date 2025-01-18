@@ -1,0 +1,51 @@
+{
+    "name": "compressmyphotos/image",
+    "type": "library",
+    "description": "A library for compressing images.",
+    "keywords": ["image", "compress", "library", "image package"],
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "ext-gd": "*",
+        "guzzlehttp/guzzle": "^7.0",
+        "illuminate/support": "*",
+        "illuminate/view": "*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.8",
+        "pestphp/pest": "^3.7",
+        "laravel/pint": "^1.20",
+        "phpstan/phpstan": "^1.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "CompressMyPhotos\\Image\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CompressMyPhotos\\Image\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CompressMyPhotos\\Image\\CompressMyPhotosServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "analyse": "vendor/bin/phpstan analyse",
+        "cs-fix": "vendor/bin/pint"
+    }
+}
