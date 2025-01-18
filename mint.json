@@ -1,0 +1,62 @@
+{
+    "name": "CompressMyPhotos Image",
+    "logo": {
+        "light": "/logo/light.png",
+        "dark": "/logo/dark.png"
+    },
+    "favicon": "/favicon.png",
+    "colors": {
+        "primary": "#0069FF",
+        "light": "#4D9CFF",
+        "dark": "#0050C0"
+    },
+    "topbarLinks": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/compressmyphotos/image"
+        }
+    ],
+    "topbarCtaButton": {
+        "name": "Get Started",
+        "url": "https://github.com/compressmyphotos/image#installation"
+    },
+    "anchors": [
+        {
+            "name": "API Reference",
+            "icon": "code",
+            "url": "api-reference"
+        },
+        {
+            "name": "Changelog",
+            "icon": "list",
+            "url": "changelog"
+        }
+    ],
+    "navigation": [
+        {
+            "group": "Getting Started",
+            "pages": [
+                "introduction",
+                "installation",
+                "configuration"
+            ]
+        },
+        {
+            "group": "Usage",
+            "pages": [
+                "basic-usage",
+                "advanced-options"
+            ]
+        },
+        {
+            "group": "API Reference",
+            "pages": [
+                "api-reference/image-component"
+            ]
+        }
+    ],
+    "footerSocials": {
+        "github": "https://github.com/Compress-My-Photos",
+        "bluesky": "https://twitter.com/compressmyphotos"
+    }
+}
