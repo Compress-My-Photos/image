@@ -2,8 +2,8 @@
 
 namespace CompressMyPhotos\Image;
 
-use Illuminate\Support\ServiceProvider;
 use CompressMyPhotos\Image\View\Components\Image;
+use Illuminate\Support\ServiceProvider;
 
 class CompressMyPhotosServiceProvider extends ServiceProvider
 {

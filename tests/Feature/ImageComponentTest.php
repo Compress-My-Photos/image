@@ -1,11 +1,11 @@
 <?php
 
 use CompressMyPhotos\Image\View\Components\Image;
-use Illuminate\Support\Facades\Config;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
+use Illuminate\Support\Facades\Config;
 
 beforeEach(function () {
     Config::set('compress-my-photos.api_url', 'https://example.com');
@@ -20,7 +20,7 @@ it('can be instantiated', function () {
 it('renders correctly', function () {
     // Create a mock response
     $mock = new MockHandler([
-        new Response(200, [], json_encode(['url' => 'https://example.com/image.jpg', 'alt' => 'Test Image']))
+        new Response(200, [], json_encode(['url' => 'https://example.com/image.jpg', 'alt' => 'Test Image'])),
     ]);
 
     $handlerStack = HandlerStack::create($mock);
