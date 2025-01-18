@@ -15,6 +15,10 @@ class CompressMyPhotosServiceProvider extends ServiceProvider
             __DIR__.'/../resources' => resource_path('views/vendor/compress-my-photos'),
         ], 'views');
 
+        $this->publishes([
+            __DIR__.'/../config/compress-my-photos.php' => config_path('compress-my-photos.php'),
+        ], 'config');
+
         $this->loadViewComponentsAs('compress-my-photos', [
             Image::class,
         ]);
