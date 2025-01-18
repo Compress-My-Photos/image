@@ -19,6 +19,6 @@ class TestCase extends Orchestra
         parent::setUp();
 
         // Load the views
-        $this->app['view']->addNamespace('compress-my-photos', __DIR__.'/../resources');
+        app('view')->addNamespace('compress-my-photos', __DIR__.'/../resources');
     }
 }

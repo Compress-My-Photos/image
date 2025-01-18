@@ -1,11 +1,14 @@
 <?php
 
+namespace CompressMyPhotos\Image\Tests\Feature;
+
 use CompressMyPhotos\Image\View\Components\Image;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Facades\Config;
+use Illuminate\View\View;
 
 beforeEach(function () {
     Config::set('compress-my-photos.api_url', 'https://example.com');
@@ -18,9 +21,8 @@ it('can be instantiated', function () {
 });
 
 it('renders correctly', function () {
-    // Create a mock response
     $mock = new MockHandler([
-        new Response(200, [], json_encode(['url' => 'https://example.com/image.jpg', 'alt' => 'Test Image'])),
+        new Response(200, [], json_encode(['url' => 'https://example.com/image.jpg', 'alt' => 'Test Image']) ?: '')
     ]);
 
     $handlerStack = HandlerStack::create($mock);
@@ -40,6 +42,9 @@ it('renders correctly', function () {
         $client
     );
     $view = $component->render();
-    expect($view)->toBeInstanceOf(\Illuminate\View\View::class)
-        ->and($view->getName())->toBe('compress-my-photos::image');
+    expect($view)->toBeInstanceOf(View::class);
+
+    if ($view instanceof View) {
+        expect($view->getName())->toBe('compress-my-photos::image');
+    }
 });
