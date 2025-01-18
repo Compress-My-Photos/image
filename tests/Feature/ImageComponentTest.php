@@ -22,7 +22,7 @@ it('can be instantiated', function () {
 
 it('renders correctly', function () {
     $mock = new MockHandler([
-        new Response(200, [], json_encode(['url' => 'https://example.com/image.jpg', 'alt' => 'Test Image']) ?: '')
+        new Response(200, [], json_encode(['url' => 'https://example.com/image.jpg', 'alt' => 'Test Image']) ?: ''),
     ]);
 
     $handlerStack = HandlerStack::create($mock);
