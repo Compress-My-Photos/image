@@ -4,27 +4,42 @@ namespace CompressMyPhotos\Image\View\Components;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Config;
 use Illuminate\View\Component;
-use Illuminate\Contracts\View\View;
 
 class Image extends Component
 {
     public int|string $id;
+
     public int $quality;
+
     public int $blur;
+
     public bool $sepia;
+
     public bool $oilpaint;
+
     public bool $grayscale;
+
     public bool $lazy;
+
     public bool $preload;
+
     public ?string $imageUrl = null;
+
     public ?string $altText = null;
+
     public ?string $format = 'webp';
+
     public ?string $flip = null;
+
     public ?string $errorMessage = null;
+
     public bool $isLoading = true;
+
     public ?int $imageWidth = null;
+
     public ?int $imageHeight = null;
 
     /**
@@ -58,7 +73,7 @@ class Image extends Component
         $this->lazy = $lazy;
         $this->preload = $preload;
         $this->isLoading = true;
-        $this->client = $client ?? new Client();
+        $this->client = $client ?? new Client;
 
         $this->fetchImageData();
 
@@ -72,7 +87,7 @@ class Image extends Component
     {
         try {
             $baseUrl = Config::get('compress-my-photos.api_url');
-            $endpoint = rtrim($baseUrl, '/') . "/api/image-data/{$this->id}";
+            $endpoint = rtrim($baseUrl, '/')."/api/image-data/{$this->id}";
 
             $response = $this->client->get($endpoint, [
                 'query' => [
@@ -85,7 +100,7 @@ class Image extends Component
                     'grayscale' => (bool) $this->grayscale,
                 ],
                 'headers' => [
-                    'Authorization' => 'Bearer ' . Config::get('compress-my-photos.api_key'),
+                    'Authorization' => 'Bearer '.Config::get('compress-my-photos.api_key'),
                 ],
             ]);
 
@@ -119,13 +134,13 @@ class Image extends Component
         $breakpoints = [320, 640, 768, 1024, 1280, 1536, 1920];
         $filtered = array_filter($breakpoints, fn ($bp) => $bp <= $originalWidth);
 
-        if (!in_array($originalWidth, $filtered)) {
+        if (! in_array($originalWidth, $filtered)) {
             $filtered[] = $originalWidth;
             sort($filtered);
         }
 
         foreach ($filtered as $bp) {
-            $this->urls[$bp] = $this->imageUrl . (str_contains($this->imageUrl, '?') ? '&' : '?') . "width={$bp}";
+            $this->urls[$bp] = $this->imageUrl.(str_contains($this->imageUrl, '?') ? '&' : '?')."width={$bp}";
         }
     }
 
