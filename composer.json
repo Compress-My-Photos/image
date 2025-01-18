@@ -1,7 +1,7 @@
 {
     "name": "compressmyphotos/image",
     "type": "library",
-    "description": "A library for compressing images.",
+    "description": "A package for displaying photos from compressmy.photos in your Laravel app.",
     "keywords": ["image", "compress", "library", "image package"],
     "license": "MIT",
     "require": {
