@@ -18,6 +18,26 @@ jobs:
       - name: Install Dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
+      - name: Create Pest Configuration
+        run: |
+          echo '<?xml version="1.0" encoding="UTF-8"?>
+          <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+                   bootstrap="vendor/autoload.php"
+                   colors="true"
+          >
+              <testsuites>
+                  <testsuite name="Test Suite">
+                      <directory suffix="Test.php">./tests</directory>
+                  </testsuite>
+              </testsuites>
+              <coverage processUncoveredFiles="true">
+                  <include>
+                      <directory suffix=".php">./src</directory>
+                  </include>
+              </coverage>
+          </phpunit>' > phpunit.xml
+
       - name: Execute tests via Pest
         run: vendor/bin/pest
 
@@ -25,4 +45,4 @@ jobs:
         run: vendor/bin/phpstan analyse
 
       - name: Check coding style
-        run: vendor/bin/php-cs-fixer fix --dry-run --diff
+        run: vendor/bin/pint --test
